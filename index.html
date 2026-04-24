@@ -1,263 +1,98 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta charset="UTF-8">
   <title>GoldenStay Appart</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    body {
-      background: #0c0c0c;
-      color: #fff;
-    }
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
 
-    /* HEADER */
-    .header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-      background: transparent;
-      transition: 0.4s;
-    }
-
-    .header.scrolled {
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-    }
-
-    .logo img {
-      height: 40px;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #fff;
-    }
-
-    .btn-gold {
-      background: #d4af37;
-      padding: 10px 20px;
-      border-radius: 8px;
-      color: #000;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    /* HERO */
-    .hero {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85') center/cover no-repeat;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 0 80px;
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.3));
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 80px;
-    }
-
-    .hero h1 {
-      font-size: 50px;
-      max-width: 600px;
-      line-height: 1.2;
-    }
-
-    .hero span {
-      color: #d4af37;
-    }
-
-    .hero p {
-      margin: 20px 0;
-      color: #ccc;
-      max-width: 500px;
-    }
-
-    .btn-hero {
-      margin-top: 20px;
-      display: inline-block;
-      background: #d4af37;
-      color: #000;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      width: fit-content;
-    }
-
-    /* BOOKING BOX */
-    .booking-box {
-      position: absolute;
-      bottom: -40px;
-      left: 80px;
-      right: 80px;
-      background: #111;
-      padding: 20px;
-      border-radius: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 3;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-
-    .booking-box div {
-      color: #aaa;
-    }
-
-    .booking-box span {
-      color: #fff;
-    }
-
-    .booking-box button {
-      background: #d4af37;
-      border: none;
-      padding: 15px 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-  </style>
-</head><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-<script>
-function checkAvailability() {
-
-  const checkin = document.getElementById("checkin");
-  const checkout = document.getElementById("checkout");
-  const guests = document.getElementById("guests");
-
-  if (!checkin || !checkout || !guests) {
-    alert("Erreur : éléments introuvables dans le HTML");
-    return;
-  }
-
-  if (!checkin.value || !checkout.value) {
-    alert("Veuillez sélectionner les dates");
-    return;
-  }
-
-  const message =
-    "Bonjour, je veux réserver un appartement :" +
-    "\nArrivée : " + checkin.value +
-    "\nDépart : " + checkout.value +
-    "\nVoyageurs : " + guests.value;
-
-  const phone = "242068868801";
-
-  const url =
-    "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
-
-  window.open(url, "_blank");
-}
-</script>
 <body>
+
+<!-- 🔥 BACKGROUND SLIDER -->
+<div class="bg-slider">
+  <div class="slide active" style="background-image:url('public/Appartements/juniorsuite6.jpg')"></div>
+  <div class="slide" style="background-image:url('public/Appartements/juniorsuite3.jpg')"></div>
+  <div class="slide" style="background-image:url('public/Appartements/seniorsuite2.jpg')"></div>
+  <div class="slide" style="background-image:url('public/Appartements/Duplex1.jpeg')"></div>
+</div>
 
 <!-- HEADER -->
 <header id="header" class="header">
+
+  <!-- LOGO GAUCHE -->
   <div class="logo">
-    <img src="/public/Golden.png" alt="GOLDENSTAY">
+    <img src="public/Golden.png" alt="GOLDENSTAY">
   </div>
 
-  <nav>
+  <!-- NAV CENTRE -->
+  <nav class="nav">
     <a href="#home">Accueil</a>
     <a href="#apartments">Appartements</a>
     <a href="#vehicles">Véhicules</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <a href="https://wa.me/242068868801" class="btn-gold">Réserver</a>
+  <!-- CTA DROITE -->
+  <a href="https://wa.me/242068868801" class="btn-gold">
+    Réserver
+  </a>
+
 </header>
 
 <!-- HERO -->
 <section id="home" class="hero">
 
-  <div class="overlay">
+  <!-- HERO CONTENT -->
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
     <h1>
       VIVEZ L’EXCEPTION,<br>
       RÉSERVEZ LE <span>MEILLEUR SÉJOUR</span>
     </h1>
 
     <p>
-      Des appartements haut de gamme conçus pour votre confort et votre bien-être
-      au cœur de Brazzaville.
+      Appartements haut de gamme au cœur de Brazzaville avec confort et sécurité premium.
     </p>
 
     <a href="https://wa.me/242068868801" class="btn-hero">
-
-      <a href="#" class="btn-gold">Réserver via WhatsApp</a>
-
+      Réserver via WhatsApp
     </a>
+
   </div>
 
   <!-- BOOKING BOX -->
   <div class="booking-box">
 
-  <div>
-    <label>Arrivée</label>
-    <input type="date" id="checkin">
+    <div class="field">
+      <label>Arrivée</label>
+      <input type="date" id="checkin">
+    </div>
+
+    <div class="field">
+      <label>Départ</label>
+      <input type="date" id="checkout">
+    </div>
+
+    <div class="field">
+      <label>Voyageurs</label>
+      <input type="number" id="guests" min="1" value="1">
+    </div>
+
+    <button onclick="checkAvailability()">
+      VÉRIFIER LA DISPONIBILITÉ →
+    </button>
+
   </div>
 
-  <div>
-    <label>Départ</label>
-    <input type="date" id="checkout">
-  </div>
-
-  <div>
-    <label>Voyageurs</label>
-    <input type="number" id="guests" min="1" value="1">
-  </div>
-
-  <button onclick="checkAvailability()">
-    VÉRIFIER LA DISPONIBILITÉ →
-  </button>
-
-</div>
 </section>
-
-<!-- SCRIPT SCROLL HEADER -->
-<script>
-  const header = document.getElementById("header");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
-</script>
-<a href="https://wa.me/242068868801" 
-   class="whatsapp-float" 
-   target="_blank">
-
-  <i class="fab fa-whatsapp"></i>
-</a>
-</body>
-</html>
-
 
 <!-- APPARTEMENTS -->
 <section id="apartments" class="listing-section">
@@ -269,17 +104,15 @@ function checkAvailability() {
     <!-- STANDARD -->
     <div class="listing-card">
       <div class="image-container">
-        <img src="/public/Appartements/standardroom1.jpg" onclick="openLightbox(this)">
+        <img src="public/Appartements/standardroom1.jpg" onclick="openLightbox(this)">
       </div>
       <div class="content">
-        <h3>Chambres Standard</h3>
+        <h3>Chambre Standard</h3>
         <p>Confort simple • WiFi • Sécurisé</p>
         <div class="price">50 000 FCFA / nuit</div>
-        <a href="#" class="btn-reserve"
-           onclick="this.href=generateWhatsAppLink('Appartement','Standard')">
-          
-          <a href="#" class="btn-reserve">Réserver</a>
-
+        <a class="btn-reserve"
+           href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Standard">
+          Réserver
         </a>
       </div>
     </div>
@@ -287,17 +120,15 @@ function checkAvailability() {
     <!-- JUNIOR -->
     <div class="listing-card">
       <div class="image-container">
-        <img src="/public/Appartements/juniorsuite1.jpg" onclick="openLightbox(this)">
+        <img src="public/Appartements/juniorsuite1.jpg" onclick="openLightbox(this)">
       </div>
       <div class="content">
         <h3>Suite Junior</h3>
-        <p>1 chambre + salon • Moderne</p>
+        <p>Moderne • Salon • Luxe</p>
         <div class="price">80 000 FCFA / nuit</div>
-        <a href="#" class="btn-reserve"
-           onclick="this.href=generateWhatsAppLink('Appartement','Junior')">
-
-          <a href="#" class="btn-reserve">Réserver</a>
-
+        <a class="btn-reserve"
+           href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Junior">
+          Réserver
         </a>
       </div>
     </div>
@@ -305,25 +136,15 @@ function checkAvailability() {
     <!-- SENIOR -->
     <div class="listing-card">
       <div class="image-container">
-        <img src="/public/Appartements/seniorsuite1.jpg" onclick="openLightbox(this)" alt="Senior Suite 1">
-        <img src="/public/Appartements/seniorsuite2.jpg" onclick="openLightbox(this)" alt="Senior Suite 2">
-        <img src="/public/Appartements/seniorsuite3.jpg" onclick="openLightbox(this)" alt="Senior Suite 3">
-        <img src="/public/Appartements/seniorsuite4.jpg" onclick="openLightbox(this)" alt="Senior Suite 4">
-        <img src="/public/Appartements/seniorsuite5.jpg" onclick="openLightbox(this)" alt="Senior Suite 5">
-        <img src="/public/Appartements/seniorsuite6.jpg" onclick="openLightbox(this)" alt="Senior Suite 6">
-        <img src="/public/Appartements/seniorsuite7.jpg" onclick="openLightbox(this)" alt="Senior Suite 7">
-        <img src="/public/Appartements/seniorsuite8.jpg" onclick="openLightbox(this)" alt="Senior Suite 8">
-        <img src="/public/Appartements/seniorsuite9.jpg" onclick="openLightbox(this)" alt="Senior Suite 9">
+        <img src="public/Appartements/seniorsuite1.jpg" onclick="openLightbox(this)">
       </div>
       <div class="content">
         <h3>Suite Senior</h3>
-        <p>2 chambres + salon • Spacieux</p>
+        <p>2 chambres • Grand espace</p>
         <div class="price">100 000 FCFA / nuit</div>
-        <a href="#" class="btn-reserve"
-           onclick="this.href=generateWhatsAppLink('Appartement','Senior')">
-
-          <a href="#" class="btn-reserve">Réserver</a>
-
+        <a class="btn-reserve"
+           href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Senior">
+          Réserver
         </a>
       </div>
     </div>
@@ -331,18 +152,15 @@ function checkAvailability() {
     <!-- PRESTIGE -->
     <div class="listing-card">
       <div class="image-container">
-        <img src="/public/Appartements/Duplex1.jpeg" onclick="openLightbox(this)" alt="Duplex 1">
-        <img src="/public/Appartements/Duplex2.jpeg" onclick="openLightbox(this)" alt="Duplex 2">
+        <img src="public/Appartements/Duplex1.jpeg" onclick="openLightbox(this)">
       </div>
       <div class="content">
         <h3>Suite Prestige</h3>
-        <p>3 chambres + luxe total</p>
+        <p>Ultra luxe • Duplex</p>
         <div class="price">130 000 FCFA / nuit</div>
-        <a href="#" class="btn-reserve"
-           onclick="this.href=generateWhatsAppLink('Appartement','Prestige')">
-
-          <a href="#" class="btn-reserve">Réserver</a>
-
+        <a class="btn-reserve"
+           href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Prestige">
+          Réserver
         </a>
       </div>
     </div>
@@ -352,20 +170,295 @@ function checkAvailability() {
 
 <!-- VEHICULES -->
 <section id="vehicles" class="listing-section">
-
   <h2>Véhicules disponibles</h2>
 
-  <div class="grid" id="cars" onclick="openLightbox(this)"></div>
+  <div class="grid">
 
+    <!-- 1 COASTER -->
+    <div class="listing-card">
+      <div class="image-container">
+        <img src="public/Voitures/Voiture1.jpeg" onclick="openLightbox(this)">
+      </div>
+      <div class="content">
+        <h3>Toyota Coaster 6 cylindres</h3>
+        <p>Climatisation • Confort • Sécurité</p>
+        <div class="price">150 000 FCFA / jour</div>
+        <a class="btn-reserve" href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Toyota%20Coaster">
+          Réserver
+        </a>
+      </div>
+    </div>
+
+    <!-- 2 PRADO TXL -->
+    <div class="listing-card">
+      <div class="image-container">
+        <img src="public/Voitures/Voiture2.jpeg" onclick="openLightbox(this)">
+      </div>
+      <div class="content">
+        <h3>Toyota Prado TXL</h3>
+        <p>Climatisation • Confort • Sécurité</p>
+        <div class="price">110 000 FCFA / jour</div>
+        <a class="btn-reserve" href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Toyota%20Prado%20TXL">
+          Réserver
+        </a>
+      </div>
+    </div>
+
+    <!-- 3 LAND CRUISER V8 -->
+    <div class="listing-card">
+      <div class="image-container">
+        <img src="public/Voitures/Voiture3.jpeg" onclick="openLightbox(this)">
+      </div>
+      <div class="content">
+        <h3>Toyota Land Cruiser V8</h3>
+        <p>Luxueux • 4x4 • Confort premium</p>
+        <div class="price">180 000 FCFA / jour</div>
+        <a class="btn-reserve" href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Land%20Cruiser%20V8">
+          Réserver
+        </a>
+      </div>
+    </div>
+
+    <!-- 4 RANGE ROVER SPORT -->
+    <div class="listing-card">
+      <div class="image-container">
+        <img src="public/Voitures/Voiture4.jpeg" onclick="openLightbox(this)">
+      </div>
+      <div class="content">
+        <h3>Range Rover Sport</h3>
+        <p>Ultra luxe • Confort • VIP</p>
+        <div class="price">250 000 FCFA / jour</div>
+        <a class="btn-reserve" href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Range%20Rover%20Sport">
+          Réserver
+        </a>
+      </div>
+    </div>
+
+    <!-- 5 PRADO VX -->
+    <div class="listing-card">
+      <div class="image-container">
+        <img src="public/Voitures/Voiture5.jpeg" onclick="openLightbox(this)">
+      </div>
+      <div class="content">
+        <h3>Toyota Prado VX</h3>
+        <p>Confort • Luxe • 4x4</p>
+        <div class="price">130 000 FCFA / jour</div>
+        <a class="btn-reserve" href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Prado%20VX">
+          Réserver
+        </a>
+      </div>
+    </div>
+
+    <!-- 6 MERCEDES GLE -->
+    <div class="listing-card">
+      <div class="image-container">
+        <img src="public/Voitures/Voiture6.jpeg" onclick="openLightbox(this)">
+      </div>
+      <div class="content">
+        <h3>Mercedes GLE 450</h3>
+        <p>Luxury SUV • Confort premium</p>
+        <div class="price">300 000 FCFA / jour</div>
+        <a class="btn-reserve" href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Mercedes%20GLE">
+          Réserver
+        </a>
+      </div>
+    </div>
+
+    <!-- 7 BMW X6 -->
+    <div class="listing-card">
+      <div class="image-container">
+        <img src="public/Voitures/Voiture7.jpeg" onclick="openLightbox(this)">
+      </div>
+      <div class="content">
+        <h3>BMW X6</h3>
+        <p>Sport • Luxe • Performance</p>
+        <div class="price">280 000 FCFA / jour</div>
+        <a class="btn-reserve" href="https://wa.me/242068868801?text=Je%20veux%20réserver%20BMW%20X6">
+          Réserver
+        </a>
+      </div>
+    </div>
+
+    <!-- 8 PRADO -->
+    <div class="listing-card">
+      <div class="image-container">
+        <img src="public/Voitures/Voiture8.jpeg" onclick="openLightbox(this)">
+      </div>
+      <div class="content">
+        <h3>Toyota Prado</h3>
+        <p>Confort • 4x4 • Fiable</p>
+        <div class="price">100 000 FCFA / jour</div>
+        <a class="btn-reserve" href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Prado">
+          Réserver
+        </a>
+      </div>
+    </div>
+    <div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture9.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 9</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture10.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 10</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture11.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 11</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture12.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 12</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture13.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 13</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture14.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 14</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture15.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 15</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture16.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 16</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture17.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 17</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture18.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 18</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture19.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 19</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture20.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 20</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
+
+<div class="listing-card">
+  <div class="image-container">
+    <img src="public/Voitures/Voiture21.jpeg" onclick="openLightbox(this)">
+  </div>
+  <div class="content">
+    <h3>Véhicule Luxe 21</h3>
+    <p>Confort • Sécurité</p>
+    <div class="price">100 000 FCFA / jour</div>
+    <a class="btn-reserve" href="#">Réserver</a>
+  </div>
+</div>
 </section>
 
-<!-- AVANTAGES -->
+
+<!-- FEATURES -->
 <section class="features-section">
+
   <h2>Pourquoi nous choisir ?</h2>
 
-  <div class="features">
+  <div class="features-bar">
 
-    <div class="feature">
+    <div class="feature-item">
       <i class="fas fa-building"></i>
       <div>
         <strong>Appartements haut de gamme</strong>
@@ -373,15 +466,15 @@ function checkAvailability() {
       </div>
     </div>
 
-    <div class="feature">
+    <div class="feature-item">
       <i class="fas fa-shield-alt"></i>
       <div>
         <strong>Sécurité 24h/24</strong>
-        <small>Votre sérénité assurée</small>
+        <small>Votre sérénité</small>
       </div>
     </div>
 
-    <div class="feature">
+    <div class="feature-item">
       <i class="fas fa-wifi"></i>
       <div>
         <strong>WiFi haut débit</strong>
@@ -389,11 +482,11 @@ function checkAvailability() {
       </div>
     </div>
 
-    <div class="feature">
+    <div class="feature-item">
       <i class="fas fa-map-marker-alt"></i>
       <div>
         <strong>Emplacement idéal</strong>
-        <small>Au cœur de Brazzaville</small>
+        <small>Brazzaville centre</small>
       </div>
     </div>
 
@@ -401,25 +494,55 @@ function checkAvailability() {
 </section>
 
 <!-- FOOTER -->
-<footer id="contact">
-    <p>Téléphones : +242 06 886 8801 | 069718474</p>
-    <p>Email : Goldenstayappart@gmail.com</p>
-    <p>Brazzaville</p>
+<footer id="contact" class="footer">
+
+  <div class="footer-content">
+    <p>📞 Téléphones : +242 06 886 8801 | 06 971 8474 | 05 797 28 03</p>
+    <p>📧 Email : Goldenstayappart@gmail.com</p>
+    <p>📍 Brazzaville, République du Congo</p>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      © 2026 GoldenStay Appart. Tous droits réservés. |
+      <a href="#">Politique de confidentialité</a> |
+      <a href="#">Conditions générales</a>
+    </p>
+  </div>
+
 </footer>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/242068868801" class="whatsapp-float">WhatsApp</a>
-
-<script src="script.js"></script>
-</body>
-<div class="bg-slider">
-  <div class="slide active" style="background-image: url('/public/Appartements/juniorsuite6.jpg')"></div>
-  <div class="slide" style="background-image: url('/public/Appartements/juniorsuite3.jpg')"></div>
-  <div class="slide" style="background-image: url('/public/Appartements/seniorsuite2.jpg')"></div>
-  <div class="slide" style="background-image: url('/public/Appartements/Duplex1.jpeg')"></div>
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
 </div>
-</html>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/242068868801" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- SCRIPT -->
 <script>
+function checkAvailability() {
+  const checkin = document.getElementById("checkin").value;
+  const checkout = document.getElementById("checkout").value;
+  const guests = document.getElementById("guests").value;
+
+  if (!checkin || !checkout) {
+    alert("Veuillez choisir les dates");
+    return;
+  }
+
+  const msg =
+`Bonjour, je veux réserver :
+Arrivée: ${checkin}
+Départ: ${checkout}
+Voyageurs: ${guests}`;
+
+  window.open("https://wa.me/242068868801?text=" + encodeURIComponent(msg), "_blank");
+}
+
 function openLightbox(img) {
   document.getElementById("lightbox").style.display = "flex";
   document.getElementById("lightbox-img").src = img.src;
@@ -429,6 +552,6 @@ function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
 </script>
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
-</div>
+
+</body>
+</html>
