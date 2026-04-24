@@ -108,3 +108,22 @@ document.addEventListener("DOMContentLoaded", () => {
   startBackgroundSlider();
   handleHeader();
 });
+function filterGallery(category, btn) {
+  const items = document.querySelectorAll(".gallery-grid .item");
+  const tabs = document.querySelectorAll(".tab");
+
+  // reset active
+  tabs.forEach(t => t.classList.remove("active"));
+  btn.classList.add("active");
+
+  // filtrage
+  items.forEach(img => {
+    if (category === "all") {
+      img.style.display = "block";
+    } else {
+      img.style.display = img.classList.contains(category)
+        ? "block"
+        : "none";
+    }
+  });
+}
