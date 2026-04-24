@@ -12,7 +12,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+<div id="galleryModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9999; padding:40px;">
+  
+  <span onclick="closeGallery()" style="position:absolute; top:20px; right:30px; font-size:30px; color:white; cursor:pointer;">✕</span>
+  
+  <div id="galleryContent" style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+  "></div>
+
+</div>
+
 <body>
+  <!-- LIGHTBOX GALERIE -->
+<div id="galleryModal" class="gallery-modal">
+  <span class="close" onclick="closeGallery()">&times;</span>
+  <div class="gallery-content" id="galleryContent"></div>
+</div>
+
 
 <!-- 🔥 BACKGROUND SLIDER -->
 <div class="bg-slider">
@@ -104,15 +122,16 @@
   <div class="grid">
 
     <!-- STANDARD -->
-    <div class="listing-card standard">
+    <div class="listing-card standard" data-type="standard">>
       <div class="image-container">
         <img src="public/Appartements/standardroom1.jpg" onclick="openLightbox(this)">
-      </div>
+      </div> 
       <div class="content">
         <h3>Chambre Standard</h3>
         <p>Confort simple • WiFi • Sécurisé</p>
         <div class="price">50 000 FCFA / nuit</div>
         <a class="btn-reserve"
+            onclick="event.stopPropagation()"
            href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Standard">
           Réserver
         </a>
@@ -120,7 +139,7 @@
     </div>
 
     <!-- JUNIOR -->
-    <div class="listing-card junior">
+    <div class="listing-card junior" data-type="junior">
       <div class="image-container">
         <img src="public/Appartements/juniorsuite1.jpg" onclick="openLightbox(this)">
       </div>
@@ -129,6 +148,7 @@
         <p>Moderne • Salon • Luxe</p>
         <div class="price">80 000 FCFA / nuit</div>
         <a class="btn-reserve"
+            onclick="event.stopPropagation()"
            href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Junior">
           Réserver
         </a>
@@ -136,7 +156,7 @@
     </div>
 
     <!-- SENIOR -->
-    <div class="listing-card senior">
+    <div class="listing-card senior" data-type="senior">
       <div class="image-container">
         <img src="public/Appartements/seniorsuite1.jpg" onclick="openLightbox(this)">
       </div>
@@ -145,6 +165,7 @@
         <p>2 chambres • Grand espace</p>
         <div class="price">100 000 FCFA / nuit</div>
         <a class="btn-reserve"
+            onclick="event.stopPropagation()"
            href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Senior">
           Réserver
         </a>
@@ -152,7 +173,7 @@
     </div>
 
     <!-- PRESTIGE -->
-    <div class="listing-card prestige">
+    <div class="listing-card prestige" data-type="prestige">
       <div class="image-container">
         <img src="public/Appartements/Duplex1.jpeg" onclick="openLightbox(this)">
       </div>
@@ -161,6 +182,7 @@
         <p>Ultra luxe • Duplex</p>
         <div class="price">130 000 FCFA / nuit</div>
         <a class="btn-reserve"
+            onclick="event.stopPropagation()"
            href="https://wa.me/242068868801?text=Je%20veux%20réserver%20Prestige">
           Réserver
         </a>
@@ -413,9 +435,9 @@
     <img src="public/Voitures/Voiture19.jpeg" onclick="openLightbox(this)">
   </div>
   <div class="content">
-    <h3>Véhicule Luxe 19</h3>
+    <h3>Toyota Prado GX</h3>
     <p>Confort • Sécurité</p>
-    <div class="price">100 000 FCFA / jour</div>
+    <div class="price">110 000 FCFA / jour</div>
     <a class="btn-reserve" href="#">Réserver</a>
   </div>
 </div>
@@ -427,7 +449,7 @@
   <div class="content">
     <h3>Mercedes Benz Class S 500</h3>
     <p>Climatisation • Confort • Sécurité</p>
-    <div class="price">80 000 FCFA / jour</div>
+    <div class="price">90 000 FCFA / jour</div>
     <a class="btn-reserve" href="#">Réserver</a>
   </div>
 </div>
@@ -439,7 +461,7 @@
   <div class="content">
     <h3>Audi RS Q8</h3>
     <p>Climatisation • Confort • Sécurité</p>
-    <div class="price">80 000 FCFA / jour</div>
+    <div class="price">90 000 FCFA / jour</div>
     <a class="btn-reserve" href="#">Réserver</a>
   </div>
 </div>
@@ -567,3 +589,6 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 </script>
+</script>
+<script src="script.js"></script>
+</body>

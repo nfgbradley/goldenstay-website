@@ -127,3 +127,77 @@ function filterGallery(category, btn) {
     }
   });
 }
+// 📸 GALERIES PAR TYPE
+const galleries = {
+  standard: [
+    "public/Appartements/standardroom1.jpg",
+    "public/Appartements/standardroom2.jpg",
+
+  ],
+  junior: [
+    "public/Appartements/juniorsuite1.jpg",
+    "public/Appartements/juniorsuite2.jpg",
+    "public/Appartements/juniorsuite3.jpg",
+    "public/Appartements/juniorsuite4.jpg",
+    "public/Appartements/juniorsuite5.jpg"
+  ],
+  senior: [
+    "public/Appartements/seniorsuite1.jpg",
+    "public/Appartements/seniorsuite2.jpg",
+    "public/Appartements/seniorsuite3.jpg",
+    "public/Appartements/seniorsuite4.jpg"
+  ],
+  prestige: [
+    "public/Appartements/Duplex1.jpeg",
+    "public/Appartements/Duplex2.jpeg"
+  ]
+};
+
+// 🔥 INIT
+document.addEventListener("DOMContentLoaded", () => {
+
+  console.log("🔥 Galerie OK");
+
+  const cards = document.querySelectorAll(".listing-card");
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+
+      const type = card.dataset.type;
+
+      console.log("CLICK:", type);
+
+      openGallery(type);
+    });
+  });
+});
+
+// 🔥 OPEN
+function openGallery(type) {
+
+  const modal = document.getElementById("galleryModal");
+  const container = document.getElementById("galleryContent");
+
+  if (!galleries[type]) {
+    console.error("❌ Type inconnu:", type);
+    return;
+  }
+
+  container.innerHTML = "";
+
+  galleries[type].forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.style.width = "100%";
+    img.style.height = "200px";
+    img.style.objectFit = "cover";
+    container.appendChild(img);
+  });
+
+  modal.style.display = "block";
+}
+
+// ❌ CLOSE
+function closeGallery() {
+  document.getElementById("galleryModal").style.display = "none";
+}
