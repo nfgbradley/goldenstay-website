@@ -716,3 +716,142 @@ section {
   color: white;
   cursor: pointer;
 }
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* IMAGE */
+.main-image {
+  max-width: 80%;
+  max-height: 70%;
+  border-radius: 10px;
+}
+
+/* FLÈCHES */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.prev { left: 30px; }
+.next { right: 30px; }
+
+/* CLOSE */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+}
+
+/* COMPTEUR */
+.counter {
+  position: absolute;
+  bottom: 80px;
+  color: white;
+  font-size: 14px;
+}
+
+/* BOUTON */
+.btn-reserve-gallery {
+  position: absolute;
+  bottom: 30px;
+  background: #C8A96A;
+  color: black;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+
+  /* GLOBAL */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    padding: 10px 15px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav {
+    position: static;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* HERO */
+  .hero h1 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .hero p {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  /* GRIDS */
+  .grid,
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CARDS */
+  .listing-card {
+    width: 100%;
+  }
+
+  /* FEATURES BAR */
+  .features-bar {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  /* BOOKING BOX */
+  .booking-box {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  /* MODAL GALERIE */
+  .main-image {
+    width: 100%;
+    max-height: 60vh;
+  }
+
+  .nav {
+    font-size: 22px;
+  }
+
+  .btn-reserve-gallery {
+    bottom: 15px;
+  }
+}
+* {
+  box-sizing: border-box;
+}

@@ -201,3 +201,46 @@ function openGallery(type) {
 function closeGallery() {
   document.getElementById("galleryModal").style.display = "none";
 }
+let currentImages = [];
+let currentIndex = 0;
+let currentType = "";
+
+// 🔥 OPEN
+function openGallery(type) {
+  currentImages = galleries[type];
+  currentIndex = 0;
+  currentType = type;
+
+  updateSlider();
+
+  document.getElementById("galleryModal").style.display = "flex";
+
+  // bouton réserver
+  const btn = document.getElementById("reserveBtn");
+  btn.href = `https://wa.me/242068868801?text=Je veux réserver ${type}`;
+}
+
+// 🔄 UPDATE
+function updateSlider() {
+  document.getElementById("mainImage").src = currentImages[currentIndex];
+  document.getElementById("counter").innerText =
+    `${currentIndex + 1} / ${currentImages.length}`;
+}
+
+// ➡️ NEXT
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  updateSlider();
+}
+
+// ⬅️ PREV
+function prevSlide() {
+  currentIndex =
+    (currentIndex - 1 + currentImages.length) % currentImages.length;
+  updateSlider();
+}
+
+// ❌ CLOSE
+function closeGallery() {
+  document.getElementById("galleryModal").style.display = "none";
+}
